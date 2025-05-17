@@ -1,0 +1,12 @@
+services:
+  modmailbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./attachments:/usr/app/attachments
+      - ./db:/usr/app/db
+      - ./config.ini:/usr/app/config.ini
+    restart: unless-stopped
+    ports:
+      - 8892:8892
